@@ -15,10 +15,10 @@ https://developer.mozilla.org/es/docs/Web/CSS/At-rule#Grupos_de_Reglas_Condicion
   /* el a de rgba significa la transparencia, donde 1.00 es el color real y 0.00 es transparente, pero si no quiero usar la transparencia, puedo usar el rgb nomas*/
 /* tambien puedo poner el color como #FFFFFF (con hashtag) que son colores web, o con palabras, pero esta ultima es limitada, el rgb es el mas preciso */
 /* En material.io/tools/color/ una puede ver con mejor precision los colores y sus opciones para texto y recomendaciones*/
-  from {
+  0% {
     background: #ff5722;
   }
-  to {
+  100% {
     background: #f06292;
   }
 }
@@ -30,22 +30,26 @@ body {
   font-family: 'Slabo 27px', serif;
   line-height: 1.75;
   overflow-x: hidden;
-  /* a continuación llamaré a la animación definada más arriba */
+  /* a continuación llamaré a la animación definada más arriba, ahora se llama agua, pero si la cambio tengo que cambiarlo arriba tambien*/
   animation-name: agua;
-  animation-duration: 5s;
-  animation-timing-function: ease;
+  animation-duration: 1s;
+  animation-timing-function: ease-in;
   animation-iteration-count: infinite;
-  animation-direction: alternate;
+  animation-direction: alternate; /*el alternate dice que cambie de color de un lado al otro y viceversa*/
+
+  /* todo lo que sale antes puede cambiarse como una sola linea de propiedad, quedando animation: agua 1s ease-in infinite alternate; */
   /* más sobre animación en https://developer.mozilla.org/es/docs/Web/CSS/animation */
 }
-
+/* el a es un vinculo, o sea en lo primero dice q los vinculos esten en tal color, en el hover es que pasa cuando el mouse esta encima del vinculo */
 a{
-  color:#222;
-  transition: all ease 1s;
+  color:#ff78;
+  transition: all ease 3s; /*cuanto se demora la transicion de cuando se pone el mouse sobre el vinculo y cuando se devuelve */
 }
 
 a:hover{
   color:#000;
+  background: #fff;
+  margin: 0 2rem;
   text-decoration: none;
 }
 
@@ -53,7 +57,7 @@ a:hover{
   font-style: italic;
 }
 
-h1,h2{margin:0; padding:0;}
+h1,h2{margin:0; padding:0;} /*aca significa que esto se aplica a h1 y h2 */
 
 pre{
   overflow-x: auto;
@@ -65,7 +69,7 @@ pre{
 pre:hover{
   background:rgba(255,255,255,0.4);
   transition: background ease 1s;
-  cursor:crosshair;
+  cursor:alias;
 }
 
 code{
@@ -100,15 +104,15 @@ code{
   padding:2rem 6rem 4rem 6rem;
 }
 
-ul li:nth-of-type(1):after {
+ul li:nth-of-type(1):after { /* aca el (1) y el (3) significa que selecciona el elemento 1 y 3 del listado -> li , y que despues (after), ponga lo siguiente */
   font-weight: bold;
-  color:#003;
-  content:" (prefieran Chrome)";
+  color:#f88;
+  content:" (prefieran Chrome)"; /*esto no aparece en el html y cuando se selecciona la pagina, no lo copia */
 }
 
 ul li:nth-of-type(3):after {
   font-weight: bold;
-  color:#003;
+  color:#f88;
   content:" (eviten Safari)";
 }
 
